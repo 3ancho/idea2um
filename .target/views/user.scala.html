@@ -1,0 +1,12 @@
+@(user: User, json: String)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main {
+<h1> Users @user.username </h1>
+<h5>@user.firstname</h5>
+<h5>@user.lastname</h5>
+<h5>@user.userid</h5>
+<p> @json </p>
+}

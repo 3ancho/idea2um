@@ -1,0 +1,23 @@
+@(posts: List[Post] = null)
+
+@main {
+
+<h1 class="slogan0"> There shall be light </h1> 
+<h1 class="slogan1"> There shall be light </h1> 
+<h1 class="slogan2"> There shall be light </h1> 
+
+@for(post <- posts) {
+    <div class="postWell">
+    
+    <p class="post_content">
+    <img class="logo" src="@routes.Assets.at("images/up.png")">
+    @post.content</p>
+    <div class="date">@post.getCreatedAt()</div> 
+    </div>
+}
+
+@if(session.get("username"))  {
+<p>Hi, @session.get("username")</p>
+}
+
+} 

@@ -1,0 +1,36 @@
+@(posts: List[Post], postForm: Form[Post])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main {
+<h1> posts @posts.size() </h1> 
+@for(post <- posts) {
+    <div class="postWell">
+    
+    <p class="post_content">
+    <img class="logo" src="@routes.Assets.at("images/up.png")">
+    @post.content</p>
+    <div class="date">@post.getCreatedAt()</div> 
+    @if(session.get("username")) {
+        @form(action = routes.PostController.delPost(post.postid)) {
+            <input class="btn btn-small" type="submit" value="delete">
+        }
+    }
+    </div>
+}
+
+@if(postForm != null) {
+
+    @form(routes.PostController.addPost()) {
+        @textarea(field = postForm("content"), 
+            args = '_label -> "Post Your Idea",
+                   'rows -> 10, 'cols -> 80, 'class -> "span4")
+        <input class="btn btn-small" type="submit">
+    }
+} @* end of if *@
+
+
+
+
+} @* end of main *@

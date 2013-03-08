@@ -1,0 +1,24 @@
+@(loginForm: Form[User])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main {
+
+<h2> Log in</h2>
+@form(routes.Application.login()) {
+     @inputText(
+        loginForm("username"), 
+        '_label -> "Username",
+        '_showConstraints -> false
+     )
+     @inputPassword(
+        loginForm("password"), 
+        '_label -> "Password",
+        '_showConstraints -> false
+     )
+     <input class="btn btn-small"  type="submit">
+}
+ 
+ 
+}

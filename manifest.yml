@@ -1,0 +1,14 @@
+---
+applications:
+- name: idea2um 
+  framework: play
+  runtime: java
+  memory: 256M
+  instances: 1
+  url: idea2um.${target-base}
+  path: dist/idea2um-1.0-SNAPSHOT.zip
+  services:
+      postgresql-629c7:
+      vendor: postgresql
+      version: '9.0'
+      tier: free

@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Application page
+GET     /                           controllers.Application.index()
+GET     /login                      controllers.Application.loginPage()
+POST    /login                      controllers.Application.login()
+GET     /logout                     controllers.Application.logout()
+
+# User controller
+GET     /users                      controllers.UserController.users()
+GET     /addUser                    controllers.UserController.addUserPage()
+POST    /addUser                    controllers.UserController.addUser()
+POST    /editUser                    controllers.UserController.editUser()
+POST    /delUser                    controllers.UserController.delUser(id: Long)
+GET     /user/:id                   controllers.UserController.user(id: Long)
+
+# Post controller
+GET     /posts                      controllers.PostController.posts()
+GET     /post/:id                   controllers.PostController.post(id: Long)
+
+POST    /addPost                    controllers.PostController.addPost()
+POST    /delPost/:id                controllers.PostController.delPost(id: Long)
+
+# Management
+
+# cats: ayb
+GET     /cats                       controllers.Application.manage()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

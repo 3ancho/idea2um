@@ -1,0 +1,16 @@
+@(users: List[User])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main {
+<h1> users @users.size() </h1> 
+@for(user <- users) {
+    <li>
+    <h5>@user.username</h5>
+    <h5>@user.getSince()</h5>
+    <h5>@user.userid</h5>
+    </li>
+}
+
+}

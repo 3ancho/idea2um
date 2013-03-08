@@ -1,0 +1,35 @@
+@(title: String)
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="@routes.Application.index()">@title</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="@("active".when(request.uri == "/users"))"><a href="@routes.UserController.users()">Users</a></li>
+          <li class="@("active".when(request.uri == "/posts"))"><a href="@routes.PostController.posts()">Posts</a></li>
+        </ul>
+        @if( session.get("username") ) {
+        <ul class="nav pull-right">
+          <li>
+            <a class="nav-username" 
+              href="@routes.UserController.user(Long.parseLong(session.get("userid")))">
+              @session.get("username")
+            </a>
+          <li><a href="@routes.Application.logout()">Log out</a></li>
+        </ul>
+        } else {
+        <ul class="nav pull-right">
+          <li><a href="@routes.UserController.addUserPage()">Sign up</a></li>
+          <li><a href="@routes.Application.loginPage()">Log in</a></li>
+        </ul>
+        }
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
