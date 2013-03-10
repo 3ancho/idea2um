@@ -4,28 +4,26 @@
 @import helper.twitterBootstrap._
 
 @main {
-
-<h2> Sign up</h2>
-@form(routes.UserController.editUser()) {
-     @inputText(
-        userForm("username"), 
+    <h2> Sign up</h2>
+    @form(routes.UserController.editUser()) {
+    @inputText(
+    userForm("username"),
         '_label -> "Username",
         '_showConstraints -> false
-     )
-     @inputPassword(
-        userForm("password"), 
+    )
+    @inputPassword(
+        userForm("password"),
         '_label -> "Password",
         '_showConstraints -> false
-     )
-     @inputText(
-        userForm("firstname"), 
+    )
+    @inputText(
+        userForm("firstname"),
         '_label -> "Firstname"
-     )
-     @inputText(
-        userForm("lastname"), 
+    )
+    @inputText(
+        userForm("lastname"),
         '_label -> "Lastname"
-     )
-     <input class="btn btn-small" type="submit">
-}
-
+    )
+    <input class="btn btn-small" type="submit">
+    }
 }

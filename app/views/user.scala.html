@@ -4,22 +4,20 @@
 @import helper.twitterBootstrap._
 
 @main {
-<h1> Users @user.username </h1>
-<h5>@user.firstname</h5>
-<h5>@user.lastname</h5>
-<h5>@user.userid</h5>
-
-
-@if(statuses == null) {
-    <p> No twitter fetched </p>
-} else {
-    @for(status <- statuses) {
-        <div class="postWell">
-        <p> @status.getText() </p>
-        <p class="date"> @User.formatDate(status.getCreatedAt(), "MMMM dd yyyy HH:mm:ss") </p>
-        </div>
-    }
-}
-
-
+	<h1> Users @user.username </h1>
+	<h5>@user.firstname</h5>
+	<h5>@user.lastname</h5>
+	<h5>@user.userid</h5>
+	
+	
+	@if(statuses == null) {
+	    <p> No twitter fetched </p>
+	} else {
+	    @for(status <- statuses) {
+	        <div class="postWell">
+	        <p> @status.getText() </p>
+	        <p class="date"> @User.formatDate(status.getCreatedAt(), "MMMM dd yyyy HH:mm:ss") </p>
+	        </div>
+	    }
+	}
 }

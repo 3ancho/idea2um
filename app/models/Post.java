@@ -16,7 +16,7 @@ public class Post extends Model {
     @Id
     @GeneratedValue
     public Long postid;
-    
+
     @Required
     @Column(columnDefinition = "TEXT", length=10000)
     public String content;
@@ -25,7 +25,7 @@ public class Post extends Model {
     @Formats.DateTime(pattern="MM/dd/yy")
     @Column(name = "created_at")
     public Date createdAt;
-    
+   
     @ManyToOne
     @Column(name = "userid")
     public Long userid;
@@ -33,7 +33,7 @@ public class Post extends Model {
     // end of field definition
     
     //
-    
+
     @Override
     public void save() {
         createdAt();
@@ -44,7 +44,7 @@ public class Post extends Model {
     private void createdAt() {
         this.createdAt = new Date();
     }
-    
+
     public static String formatDate(Date d, String pattern) {
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         return format.format(d);

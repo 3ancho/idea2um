@@ -5,7 +5,9 @@ import play.db.ebean.*;
 import models.*;
 import play.Configuration;
 
+
 public class Global extends GlobalSettings {
+
     
     public void onStart( Application app ) {
         InitData.addRootUser();
